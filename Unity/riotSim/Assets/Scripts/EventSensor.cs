@@ -13,10 +13,9 @@ public class EventSensor : MonoBehaviour {
 	public Material offMaterial;
 
 	private MeshRenderer meshRenderer;
-	private bool sensorValue;
 	private int frameCnt;
 
-	private UnityWebRequest sensorPost;
+	private bool sensorValue;
 
 	// Use this for initialization
 	void Start () {
@@ -38,21 +37,22 @@ public class EventSensor : MonoBehaviour {
 
 	public void Set() {
 		sensorValue = !sensorValue;
-		Debug.LogWarningFormat ("set {0}={1}", sensorName, sensorValue);
+		Debug.LogWarningFormat ("EventSensor.Set: {0}={1}", sensorName, sensorValue);
 		meshRenderer.material = sensorValue ? onMaterial : offMaterial;
 		StartCoroutine (UpdateCloud ());
 	}
 
 	private IEnumerator UpdateCloud() {
+		string url = baseURL + houseName + "/event/sensornames/" + sensorName + "/" + sensorValue;
+		Debug.LogFormat ("EventSensor.UpdateCloud: {0}", url);
 
-		sensorPost = UnityWebRequest.Get(baseURL + houseName + "/event/sensornames/" + sensorName + "/" + sensorValue);
-		Debug.LogFormat ("ToCloud: event <{0}, {1}, {2}>", houseName, sensorName, sensorValue);
-		yield return sensorPost.Send ();
+		UnityWebRequest getRequest = UnityWebRequest.Get(url);
+		yield return getRequest.Send ();
 
-		if (sensorPost.isError) {
-			Debug.Log (sensorPost.error);
+		if (getRequest.isError) {
+			Debug.LogError (getRequest.error);
 		} else {
-			Debug.Log ("EventSensor posted");
+			Debug.Log ("EventSensor updated");
 		}
 	}
 }

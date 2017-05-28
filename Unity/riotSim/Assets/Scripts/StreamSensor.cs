@@ -9,7 +9,6 @@ public class StreamSensor : MonoBehaviour {
 
 	public string houseName;
 	public string sensorName;
-	public string sampleValue;
 
 	[Tooltip("Sample period in seconds.")]
 	public int samplePeriod = 10;
@@ -17,13 +16,15 @@ public class StreamSensor : MonoBehaviour {
 	private DateTime epochStart;
 	private long lastPostTime;
 	private int frameCnt;
-	private UnityWebRequest sensorPost;
+
+	private string sensorValue;
 
 	// Use this for initialization
 	void Start () {
 		epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 		lastPostTime = 0;
 		frameCnt = 0;
+		sensorValue = "40";
 	}
 
 	// Update is called once per frame
@@ -40,21 +41,22 @@ public class StreamSensor : MonoBehaviour {
 		}
 	}
 
-	public void Set(string newSampleValue) {
-		sampleValue = newSampleValue;
-		Debug.LogWarningFormat ("set {0}={1}", sensorName, sampleValue);
+	public void Set(float newSensorValue) {
+		sensorValue = newSensorValue.ToString();
+		Debug.LogWarningFormat ("StreamSensor.Set {0}={1}", sensorName, sensorValue);
 	}
 
 	private IEnumerator UpdateCloud() {
-		// TODO send info to cloud
-		sensorPost = UnityWebRequest.Get(baseURL + houseName + "/stream/sensornames/" + sensorName + "/" + sampleValue);
-		Debug.LogFormat ("ToCloud: stream <{0}, {1}, {2}>", houseName, sensorName, sampleValue);
-		yield return sensorPost.Send ();
+		string url = baseURL + houseName + "/stream/sensornames/" + sensorName + "/" + sensorValue;
+		Debug.LogFormat ("StreamSensor.UpdateCloud: {0}", url);
 
-		if (sensorPost.isError) {
-			Debug.Log (sensorPost.error);
+		UnityWebRequest getRequest = UnityWebRequest.Get(url);
+		yield return getRequest.Send ();
+
+		if (getRequest.isError) {
+			Debug.LogError (getRequest.error);
 		} else {
-			Debug.Log ("StreamSensor posted");
+			Debug.Log ("StreamSensor updated");
 		}
 	}
 
