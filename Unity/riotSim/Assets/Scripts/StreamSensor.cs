@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class StreamSensor : MonoBehaviour {
-	public string baseURL = "http://127.0.0.1:8080/homeids/";
 
 	public string houseName;
 	public string sensorName;
@@ -47,7 +46,7 @@ public class StreamSensor : MonoBehaviour {
 	}
 
 	private IEnumerator UpdateCloud() {
-		string url = baseURL + houseName + "/stream/sensornames/" + sensorName + "/" + sensorValue;
+		string url = HouseManager.GetBaseUrl() + houseName + "/stream/sensornames/" + sensorName + "/" + sensorValue;
 		Debug.LogFormat ("StreamSensor.UpdateCloud: {0}", url);
 
 		UnityWebRequest getRequest = UnityWebRequest.Get(url);
