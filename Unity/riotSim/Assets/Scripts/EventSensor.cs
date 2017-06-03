@@ -42,7 +42,7 @@ public class EventSensor : MonoBehaviour {
 	}
 
 	private IEnumerator UpdateCloud() {
-		string url = HouseManager.GetBaseUrl() + houseName + "/event/sensornames/" + sensorName + "/" + sensorValue;
+		string url = HouseManager.GetBaseUrl() + houseName + "/event/sensornames/" + sensorName + "/sensordatas/" + sensorValue;
 		Debug.LogFormat ("EventSensor.UpdateCloud: {0}", url);
 
 		UnityWebRequest getRequest = UnityWebRequest.Get(url);

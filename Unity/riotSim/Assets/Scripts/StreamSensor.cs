@@ -75,7 +75,7 @@ public class StreamSensor : MonoBehaviour {
 	}
 
 	private IEnumerator UpdateCloud() {
-		string url = HouseManager.GetBaseUrl() + houseName + "/stream/sensornames/" + sensorName + "/" + sensorValue.ToString();
+		string url = HouseManager.GetBaseUrl() + houseName + "/stream/sensornames/" + sensorName + "/sensordatas/" + sensorValue.ToString();
 		Debug.LogFormat ("StreamSensor.UpdateCloud: {0}", url);
 
 		UnityWebRequest getRequest = UnityWebRequest.Get(url);
