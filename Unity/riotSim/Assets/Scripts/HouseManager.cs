@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class HouseManager : MonoBehaviour {
 
-	//private const string localBaseUrl = "http://127.0.0.1:5000/homeids/";
-	private const string localBaseUrl = "http://192.168.1.108:5000/homeids/";
-	private const string remoteBaseUrl = "https://endless-shadow.herokuapp.com/homeids/";
+	private const string localBaseUrl = "http://192.168.1.108:5000/rIOT/db/sensorFlow";
+	private const string remoteBaseUrl = "https://endless-shadow.herokuapp.com/rIOT/db/sensorFlow";
 
 	private static bool IsRemote = false;
 

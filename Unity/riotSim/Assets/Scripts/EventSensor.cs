@@ -7,6 +7,7 @@ public class EventSensor : MonoBehaviour {
 
 	public string houseName;
 	public string sensorName;
+	private const int sensorType = 0;
 
 	public Material onMaterial;
 	public Material offMaterial;
@@ -42,16 +43,22 @@ public class EventSensor : MonoBehaviour {
 	}
 
 	private IEnumerator UpdateCloud() {
-		string url = HouseManager.GetBaseUrl() + houseName + "/event/sensornames/" + sensorName + "/sensordatas/" + sensorValue;
+		string url = HouseManager.GetBaseUrl();
 		Debug.LogFormat ("EventSensor.UpdateCloud: {0}", url);
 
-		UnityWebRequest getRequest = UnityWebRequest.Get(url);
-		yield return getRequest.Send ();
-
-		if (getRequest.isError) {
-			Debug.LogError (getRequest.error);
-		} else {
-			Debug.Log ("EventSensor updated");
+		WWWForm form = new WWWForm ();
+		form.AddField ("houseName", houseName);
+		form.AddField ("sensorName", sensorName);
+		form.AddField ("sensorData", sensorValue.ToString());
+		form.AddField ("sensorType", sensorType);
+		using (UnityWebRequest postRequest = 
+			UnityWebRequest.Post(url, form)) {
+			yield return postRequest.Send ();
+			if (postRequest.isError) {
+				Debug.LogError (postRequest.error);
+			} else {
+				Debug.Log ("EventSensor updated");
+			}
 		}
 	}
 }

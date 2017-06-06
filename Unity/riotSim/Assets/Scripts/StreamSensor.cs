@@ -8,6 +8,7 @@ public class StreamSensor : MonoBehaviour {
 
 	public string houseName;
 	public string sensorName;
+	private const int sensorType = 1;
 
 	[Tooltip("Sample period in seconds.")]
 	public int samplePeriod = 10;
@@ -75,16 +76,22 @@ public class StreamSensor : MonoBehaviour {
 	}
 
 	private IEnumerator UpdateCloud() {
-		string url = HouseManager.GetBaseUrl() + houseName + "/stream/sensornames/" + sensorName + "/sensordatas/" + sensorValue.ToString();
+		string url = HouseManager.GetBaseUrl();
 		Debug.LogFormat ("StreamSensor.UpdateCloud: {0}", url);
 
-		UnityWebRequest getRequest = UnityWebRequest.Get(url);
-		yield return getRequest.Send ();
-
-		if (getRequest.isError) {
-			Debug.LogError (getRequest.error);
-		} else {
-			Debug.Log ("StreamSensor updated");
+		WWWForm form = new WWWForm ();
+		form.AddField ("houseName", houseName);
+		form.AddField ("sensorName", sensorName);
+		form.AddField ("sensorData", sensorValue.ToString());
+		form.AddField ("sensorType", sensorType);
+		using (UnityWebRequest postRequest = 
+			UnityWebRequest.Post(url, form)) {
+			yield return postRequest.Send ();
+			if (postRequest.isError) {
+				Debug.LogError (postRequest.error);
+			} else {
+				Debug.Log ("StreamSensor updated");
+			}
 		}
 	}
 
