@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DIMENS for main_activity -->
+    <dimen name="main_recycler_margin">20dp</dimen>
+
+    <!-- DIMENS for house list item -->
+    <dimen name="house_LI_height">50dp</dimen>
+    <dimen name="house_list_padding">4dp</dimen>
+    <dimen name="house_LI_expand">25dp</dimen>
+    <dimen name="house_LI_TV_marginStart">16dp</dimen>
+    <dimen name="house_LI_IV_marginEnd">8dp</dimen>
+    <dimen name="house_LI_IV_marginTop">12dp</dimen>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Application level strings -->
+    <string name="app_name">rIOTAndroid</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_refresh">Refresh</string>
+
+    <!-- Main Activity Strings -->
+    <string name="mainactivity_label">rIOT House</string>
+    <string name="houseArea_kitchen">Kitchen</string>
+
+    <string name="main_expandCD">Expand List Button</string>
+
+</resources>
