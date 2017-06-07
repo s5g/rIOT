@@ -1,9 +1,22 @@
 # rIOT
 IOT sensor simulation, REST backend, Android dashboard
 
-### URL Convention
-- (StreamSensor) '/homeids/<home_id>/stream/sensornames/<sensor_name>/sensordatas/<sensor_data>'
-- (EventSensor)  '/homeids/<home_id>/event/sensornames/<sensor_name>/sensordatas/<sensor_data>'
+### URL Convention  
+- (GET) '/rIOT/db/create'  
+> creates new table with name sensorFlow  
+  
+- (POST) '/rIOT/db/sensorFlow'  
+> inserts a row into 'sensorFlow  
+>> var houseName = [your house name]  
+>> var sensorName = [your sensor name]  
+>> var sensorData = [your sensor data]  
+>> var sensorType = [0 | 1], {0=event, 1=stream}  
+  
+- (GET) '/rIOT/db/sensorFlow'  
+> returns sensorData of all rows  
+  
+- (GET)  '/rIOT/db/delete'  
+> deletes all rows in sensorData  
 
 ### Datastore Architecture
 Using Heroku postgresql database  
