@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/house_list_group"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/house_LG_height"
+    android:background="@color/colorPrimaryDarkHighOpaque">
+
+    <TextView
+        android:id="@+id/houseLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        style="@style/expandableList_title"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/expand"
+        android:layout_toStartOf="@+id/expand"
+        android:layout_marginLeft="@dimen/house_LG_TV_marginStart"
+        android:layout_marginStart="@dimen/house_LG_TV_marginStart"/>
+
+    <ImageView
+        android:id="@+id/expand"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/house_LG_expand"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+
+        android:layout_marginEnd="@dimen/house_LG_IV_marginEnd"
+        android:layout_marginRight="@dimen/house_LG_IV_marginEnd"
+        android:layout_marginTop="@dimen/house_LG_IV_marginTop"
+        android:contentDescription="@string/main_expandCD"
+        android:cropToPadding="false"
+        android:src="@drawable/ic_action_expand" />
+
+</RelativeLayout>

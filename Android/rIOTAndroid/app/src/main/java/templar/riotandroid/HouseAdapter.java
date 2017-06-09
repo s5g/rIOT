@@ -23,7 +23,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.HouseAdapter
 
     @Override
     public HouseAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType){
-        int layoutId = R.layout.house_list_item;
+        int layoutId = R.layout.house_list_group;
         View view = LayoutInflater.from(mContext).inflate(layoutId, viewGroup, false);
         view.setFocusable(true);
         return new HouseAdapterViewHolder(view, viewType);

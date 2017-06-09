@@ -8,8 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="house_list_text">
+    <style name="expandableList_title">
         <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/verylight_pink</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="expandableList_detail">
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/verylight_pink</item>
         <item name="android:maxLines">1</item>
