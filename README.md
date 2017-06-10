@@ -1,6 +1,10 @@
 # rIOT
 IOT sensor simulation, REST backend, Android dashboard
 
+### URLs  
+- local URL : "http://192.168.1.108:5000/"  
+- remote URL : ""https://endless-shadow.herokuapp.com/"
+
 ### URL Convention  
 - (GET) '/rIOT/db/create'  
 > creates new table with name sensorFlow  
