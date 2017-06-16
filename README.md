@@ -18,6 +18,15 @@ IOT sensor simulation, REST backend, Android dashboard
   
 - (GET) '/rIOT/db/sensorFlow'  
 > returns sensorData of all rows  
+
+- (GET) '/rIOT/db/sensorFlow/sensorNames'  
+> returns a list of all distinct sensornames  
+
+- (GET) '/rIOT/db/sensorFlow/:sensorNames'  
+> returns items with sensorname matching :sensorNames  
+
+- (GET) '/rIOT/db/sensorFlow/sensorDatas'  
+> returns most recent sensor data (highest id) for all distinct sensors  
   
 - (GET)  '/rIOT/db/delete'  
 > deletes all rows in sensorData  
