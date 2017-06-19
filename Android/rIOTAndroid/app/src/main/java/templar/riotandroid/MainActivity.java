@@ -1,5 +1,6 @@
 package templar.riotandroid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,17 +16,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import templar.riotandroid.sync.SensorFlowSyncIntentService;
+
 public class MainActivity extends AppCompatActivity {
 
     private List<String> mExpandableListHouse;
     private HashMap<String, List<String>> mExpandableListDetail;
+    private Intent mSyncIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_2);
-        //initializeRecyclerView();
         initializeExpandedListView();
+
+        mSyncIntent = new Intent(this, SensorFlowSyncIntentService.class);
+        startService(mSyncIntent);
     }
 
     @Override
@@ -47,15 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refresh(){
-
-    }
-
-    private void initializeRecyclerView(){
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        RecyclerView recyclerView = (RecyclerView) this.findViewById(R.id.main_recyclerview);
-        HouseAdapter houseAdapter = new HouseAdapter(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(houseAdapter);
+        startService(mSyncIntent);
     }
 
     private void initializeExpandedListView(){

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import templar.riotandroid.values.SensorFlowValues;
+
 /**
  * Created by Devin on 6/8/2017.
  */
@@ -14,8 +16,7 @@ public class ExpandableListDataHub {
         HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
 
         List<String> kitchen = new ArrayList<String>();
-        kitchen.add("stove1");
-        kitchen.add("fridgeTemp");
+        kitchen = SensorFlowValues.getSensorList();
 
         expandableListDetail.put("Kitchen Sensors", kitchen);
         return expandableListDetail;

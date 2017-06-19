@@ -2,6 +2,9 @@
 
     <!-- Application level strings -->
     <string name="app_name">rIOTAndroid</string>
+    <string name="endless_shadow_base">https://endless-shadow.herokuapp.com</string>
+    <string name="endless_shadow_get_sensors">/rIOT/db/sensorFlow/sensorNames</string>
+    <string name="endless_shadow_get_data">/rIOT/db/sensorFlow/sensorDatas</string>
 
     <!-- Menu Strings -->
     <string name="menu_refresh">Refresh</string>

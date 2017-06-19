@@ -10,6 +10,8 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.List;
 
+import templar.riotandroid.values.SensorFlowValues;
+
 /**
  * Created by Devin on 6/8/2017.
  */
@@ -38,17 +40,25 @@ public class HouseExpandableListAdapter extends BaseExpandableListAdapter {
         return expandedListPosition;
     }
 
+    /*
+    expandedListText is essentially the sensorName
+     */
     @Override
     public View getChildView(int listPosition, final int expandedListPosition,
                              boolean isLastChild, View convertView, ViewGroup parent){
         final String expandedListText = (String) getChild(listPosition, expandedListPosition);
+        final String expandedListData = SensorFlowValues
+                .getSensorData()
+                .get(expandedListText);
         if(convertView == null){
             LayoutInflater layoutInflater =
                     (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.house_list_item, null);
         }
-        TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expandedListItem);
-        expandedListTextView.setText(expandedListText);
+        TextView expandedListSensorTV = (TextView) convertView.findViewById(R.id.expandedListSensor);
+        TextView expandedListDataTV = (TextView) convertView.findViewById(R.id.expandedListData);
+        expandedListSensorTV.setText(expandedListText);
+        expandedListDataTV.setText(expandedListData);
         return convertView;
     }
 
