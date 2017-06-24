@@ -43,7 +43,6 @@ public class SensorFlowSyncIntentService extends IntentService {
                 getDataUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "getDataResponse!");
                 handleData(response);
             }
         }, new Response.ErrorListener(){
@@ -57,7 +56,6 @@ public class SensorFlowSyncIntentService extends IntentService {
                 getSensorsUrl, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "getSensorResponse!");
                 handleSensors(response);
                 requestQueue.add(stringRequest2);
             }
@@ -87,16 +85,12 @@ public class SensorFlowSyncIntentService extends IntentService {
             for(int i = 0; i < sensorCount; i++){
                 json_sensor = jsonArray_sensors.getJSONObject(i);
                 sensorName = json_sensor.getString("sensorname");
-                Log.e(TAG, sensorName);
                 if(!SensorFlowValues.getSensorList().contains(sensorName)){
                     SensorFlowValues
                             .getSensorList()
                             .add(sensorName);
                 }
             }
-
-            //Log.e(TAG, "sensor length is " + json_result.length());
-            //Log.e(TAG, "rowCount is " + sensorCount);
         }catch(org.json.JSONException e){
             Log.e(TAG, "JSONException with string: " + response);
         }
@@ -118,7 +112,6 @@ public class SensorFlowSyncIntentService extends IntentService {
                 json_sensor = jsonArray_data.getJSONObject(i);
                 sensorName = json_sensor.getString("sensorname");
                 sensorData = json_sensor.getString("sensordata");
-                Log.e(TAG, "<sensorname: " + sensorName + ">, <sensordata: " + sensorData + ">");
 
                 if(!sensorList.contains(sensorName)){
                     Log.e(TAG, sensorName + " was not in 'sensorName' list... has been added");
@@ -126,6 +119,7 @@ public class SensorFlowSyncIntentService extends IntentService {
                 }
                 sensorDataHash.put(sensorName, sensorData);
             }
+            Log.e(TAG, "SensorFlowSyncData successfully added");
         }catch(org.json.JSONException e){
             Log.e(TAG, "JSONException with string: " + response);
         }

@@ -2,6 +2,8 @@
 <resources>
     <!-- DIMENS for main_activity -->
     <dimen name="main_recycler_margin">20dp</dimen>
+    <dimen name="main_appbar_height">224dp</dimen>
+    <dimen name="main_toolbar_marginTop">168dp</dimen>
 
     <!-- DIMENS for login activity -->
     <dimen name="login_edittext_height">30dp</dimen>
