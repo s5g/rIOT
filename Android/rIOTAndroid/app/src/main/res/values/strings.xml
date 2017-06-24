@@ -1,10 +1,12 @@
 <resources>
 
     <!-- Application level strings -->
-    <string name="app_name">rIOTAndroid</string>
-    <string name="endless_shadow_base">https://endless-shadow.herokuapp.com</string>
-    <string name="endless_shadow_get_sensors">/rIOT/db/sensorFlow/sensorNames</string>
-    <string name="endless_shadow_get_data">/rIOT/db/sensorFlow/sensorDatas</string>
+    <string name="app_name" translatable="false">rIOTAndroid</string>
+    <string name="preference_file_key" translatable="false">templar.riotandroid.PREFERENCE_FILE_KEY</string>
+    <string name="ecosystem_name" translatable="false">ecosystem_name</string>
+    <string name="endless_shadow_base" translatable="false">https://endless-shadow.herokuapp.com</string>
+    <string name="endless_shadow_get_sensors" translatable="false">/rIOT/db/sensorFlow/sensorNames</string>
+    <string name="endless_shadow_get_data" translatable="false">/rIOT/db/sensorFlow/sensorDatas</string>
 
     <!-- Menu Strings -->
     <string name="menu_refresh">Refresh</string>
@@ -14,5 +16,16 @@
     <string name="houseArea_kitchen">Kitchen</string>
 
     <string name="main_expandCD">Expand List Button</string>
+
+    <!-- Login Activity Strings -->
+    <string name="login_welcome">Welcome!</string>
+    <string name="login_ecosystem_hint">Name your Ecosystem</string>
+    <string name="login_pass1_hint">Enter a password</string>
+    <string name="login_pass2_hint">Re-type password</string>
+    <string name="login_button">ENTER!</string>
+    <string name="missing_ecosystem">Please name your ecosystem</string>
+    <string name="missing_pass1">Please choose a password</string>
+    <string name="missing_pass2">Please re-type your password</string>
+    <string name="nonmatching_pass">Your passwords do not match</string>
 
 </resources>

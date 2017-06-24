@@ -5,14 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="@drawable/riotbg">
+    android:background="@drawable/houses_bg">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_recyclerview"
+    <ExpandableListView
+        android:id="@+id/main_expandablelistview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:elevation="8dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
 
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:indicatorStart="?android:attr/expandableListPreferredItemIndicatorLeft"
         android:layout_margin="@dimen/main_recycler_margin" />
 
 </android.support.design.widget.CoordinatorLayout>

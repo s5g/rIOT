@@ -1,10 +1,10 @@
-package templar.riotandroid;
+package templar.riotandroid.framework;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,10 +16,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import templar.riotandroid.ExpandableListDataHub;
+import templar.riotandroid.HouseExpandableListAdapter;
+import templar.riotandroid.R;
 import templar.riotandroid.sync.SensorFlowSyncIntentService;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = MainActivity.class.getName();
     private List<String> mExpandableListHouse;
     private HashMap<String, List<String>> mExpandableListDetail;
     private Intent mSyncIntent;
@@ -27,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_2);
+        if(!hasEcosystem()){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        setContentView(R.layout.activity_main);
         initializeExpandedListView();
 
         mSyncIntent = new Intent(this, SensorFlowSyncIntentService.class);
@@ -54,6 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void refresh(){
         startService(mSyncIntent);
+    }
+
+    private boolean hasEcosystem(){
+        SharedPreferences sharedPreferences = this.getSharedPreferences(
+                getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+        return !(sharedPreferences
+                .getString(getString(R.string.ecosystem_name), "null")
+                .equals("null")
+        );
     }
 
     private void initializeExpandedListView(){
