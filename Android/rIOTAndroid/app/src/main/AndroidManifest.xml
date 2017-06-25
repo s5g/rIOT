@@ -6,23 +6,24 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/riot_logo_yellow_square"
-        android:roundIcon="@mipmap/riot_logo_yellow_square"
-        android:logo="@mipmap/riot_logo_yellow_square"
+        android:icon="@mipmap/riot_logo_blank_square"
+        android:roundIcon="@mipmap/riot_logo_blank_square"
+        android:logo="@mipmap/riot_logo_blank_square"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".framework.MainActivity"
+        <activity
+            android:name=".framework.MainActivity"
             android:label="@string/mainactivity_label">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".framework.LoginActivity"
+        <activity
+            android:name=".framework.LoginActivity"
             android:theme="@style/LoginTheme"/>
 
         <service

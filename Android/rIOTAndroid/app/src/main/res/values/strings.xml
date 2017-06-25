@@ -12,7 +12,7 @@
     <string name="menu_refresh">Refresh</string>
 
     <!-- Main Activity Strings -->
-    <string name="mainactivity_label">rIOT House</string>
+    <string name="mainactivity_label">rIOT</string>
     <string name="houseArea_kitchen">Kitchen</string>
 
     <string name="main_expandCD">Expand List Button</string>
