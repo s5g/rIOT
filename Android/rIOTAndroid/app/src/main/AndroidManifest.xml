@@ -6,9 +6,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/riot_logo_yellow_square"
+        android:roundIcon="@mipmap/riot_logo_yellow_square"
+        android:logo="@mipmap/riot_logo_yellow_square"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 

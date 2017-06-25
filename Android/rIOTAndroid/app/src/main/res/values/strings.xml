@@ -18,6 +18,7 @@
     <string name="main_expandCD">Expand List Button</string>
 
     <!-- Login Activity Strings -->
+    <string name="login_logo">rIOT Logo</string>
     <string name="login_welcome">Welcome!</string>
     <string name="login_ecosystem_hint">Name your Ecosystem</string>
     <string name="login_pass1_hint">Enter a password</string>
