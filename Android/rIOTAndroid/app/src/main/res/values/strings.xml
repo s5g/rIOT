@@ -2,11 +2,15 @@
 
     <!-- Application level strings -->
     <string name="app_name" translatable="false">rIOTAndroid</string>
+
     <string name="preference_file_key" translatable="false">templar.riotandroid.PREFERENCE_FILE_KEY</string>
     <string name="ecosystem_name" translatable="false">ecosystem_name</string>
+    <string name="firebase_token" translatable="false">firebase_token</string>
+
     <string name="endless_shadow_base" translatable="false">https://endless-shadow.herokuapp.com</string>
     <string name="endless_shadow_get_sensors" translatable="false">/rIOT/db/sensorFlow/sensorNames</string>
     <string name="endless_shadow_get_data" translatable="false">/rIOT/db/sensorFlow/sensorDatas</string>
+    <string name="endless_shadow_create_token" translatable="false">/rIOT/db/userFlow</string>
 
     <!-- Menu Strings -->
     <string name="menu_refresh">Refresh</string>
